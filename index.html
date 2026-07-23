@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Curtis | Portfolio & Work</title>
+    <title>Sam Curtis | Portfolio & Experience</title>
     <style>
         /* CSS Reset & Variables */
         :root {
             --primary: #0f172a;   /* Dark Slate */
-            --accent: #2563eb;    /* Royal Blue */
+            --accent: #1e3a8a;    /* Deep Navy */
+            --highlight: #2563eb; /* Royal Blue */
             --text-dark: #1e293b;
             --text-muted: #64748b;
             --bg-light: #f8fafc;
@@ -33,18 +34,18 @@
         header {
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--border);
-            padding: 3rem 1.5rem;
+            padding: 3rem 1.5rem 2rem 1.5rem;
             text-align: center;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--border);
@@ -52,13 +53,20 @@
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: var(--primary);
             margin-bottom: 0.25rem;
         }
 
+        header p.tagline {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
         header p.subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-muted);
             margin-bottom: 1.25rem;
         }
@@ -72,7 +80,7 @@
         }
 
         .contact-links a {
-            color: var(--accent);
+            color: var(--highlight);
             text-decoration: none;
             font-weight: 500;
         }
@@ -95,10 +103,11 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
+            gap: 1rem;
         }
 
         .nav-link {
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 600;
@@ -106,9 +115,9 @@
             transition: all 0.2s;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
+        .nav-link:hover {
+            color: var(--highlight);
+            border-bottom-color: var(--highlight);
         }
 
         /* Container Layout */
@@ -126,46 +135,15 @@
             border-bottom: 2px solid var(--border);
         }
 
-        /* Website Portfolio Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .project-card {
+        /* Bio Block */
+        .bio-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-card .btn-link {
-            display: inline-block;
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
         }
 
         /* Resume Styling */
@@ -175,6 +153,14 @@
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
+        }
+
+        .resume-block h3 {
+            margin-bottom: 1.25rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
         }
 
         .experience-item {
@@ -206,28 +192,78 @@
         .exp-date {
             font-size: 0.85rem;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         .exp-company {
             color: var(--accent);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .skills-tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
+        /* Bulleted & Tagged Lists */
+        .awards-list {
+            list-style-type: none;
+            padding-left: 0;
         }
 
-        .skill-tag {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
+        .awards-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
             color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .awards-list li::before {
+            content: "•";
+            color: var(--highlight);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+
+        /* Website Portfolio Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card .btn-link {
+            display: inline-block;
+            color: var(--highlight);
+            font-weight: 600;
+            text-decoration: none;
         }
 
         /* Footer */
@@ -243,11 +279,12 @@
 </head>
 <body>
 
-    <!-- Hero Header -->
+    <!-- Header Banner -->
     <header>
         <div class="hero-content">
             <img src="sc.jpg" alt="Sam Curtis" class="profile-img">
             <h1>Sam Curtis</h1>
+            <p class="tagline">IT Professional • Entrepreneur • Primitive Baptist</p>
             <p class="subtitle">Excelsior Springs, Missouri</p>
             <div class="contact-links">
                 <a href="mailto:hello@samcurtis.me">hello@samcurtis.me</a>
@@ -260,97 +297,132 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#websites" class="nav-link active">Featured Websites</a>
-            <a href="#resume" class="nav-link">Resume & Experience</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#resume" class="nav-link">Resume & Background</a>
+            <a href="#websites" class="nav-link">Websites Created</a>
         </div>
     </nav>
 
-    <!-- Content Area -->
+    <!-- Main Content -->
     <main class="container">
 
-        <!-- Websites Section -->
-        <section id="websites">
-            <h2 class="section-heading">Websites & Projects Created</h2>
-            <div class="projects-grid">
-                
-                <!-- Website Card 1 -->
-                <div class="project-card">
-                    <div>
-                        <h3>Sam Curtis Personal Site</h3>
-                        <p>Personal portfolio site highlighting projects, professional history, and services.</p>
-                    </div>
-                    <a href="https://www.samcurtis.me" target="_blank" class="btn-link">Visit Website &rarr;</a>
-                </div>
-
-                <!-- Website Card 2 -->
-                <div class="project-card">
-                    <div>
-                        <h3>Project Name / Client Site</h3>
-                        <p>A short description of this website—what it was built for, tools used, or who it serves.</p>
-                    </div>
-                    <a href="#" target="_blank" class="btn-link">Visit Website &rarr;</a>
-                </div>
-
-                <!-- Website Card 3 -->
-                <div class="project-card">
-                    <div>
-                        <h3>Another Website Project</h3>
-                        <p>Detailed description of the site layout, client scope, or personal project build details.</p>
-                    </div>
-                    <a href="#" target="_blank" class="btn-link">Visit Website &rarr;</a>
-                </div>
-
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-heading">About Me</h2>
+            <div class="bio-card">
+                <p>
+                    Hello, I am Sam Curtis. I have lived in the great state of Missouri all of my life. I am proud to be an American, and I believe in the Conservative principles established from the influence of our Almighty, Triune God. 
+                </p>
+                <br>
+                <p>
+                    I am a Certified I.T. professional and work for the Excelsior Springs School District Technology Department. I am a Richmond FFA member, the owner of Tech Center Support Service, and a member of the Old New Garden Primitive Baptist Church. I also serve on the advisory board for the Lex La-Ray Computer Maintenance and Networking Program.
+                </p>
             </div>
         </section>
 
         <!-- Resume Section -->
         <section id="resume">
-            <h2 class="section-heading">Resume & Experience</h2>
+            <h2 class="section-heading">Resume & Qualifications</h2>
             
+            <!-- Work Experience Block -->
             <div class="resume-block">
-                <h3 style="margin-bottom: 1.25rem; color: var(--primary);">Work History</h3>
+                <h3>Work & Advisory Roles</h3>
 
-                <!-- Experience Item 1 -->
                 <div class="experience-item">
                     <div class="exp-header">
-                        <span class="exp-role">Owner / Principal Developer</span>
-                        <span class="exp-date">2020 – Present</span>
+                        <span class="exp-role">Technology Department</span>
                     </div>
-                    <div class="exp-company">Sam Curtis Digital</div>
-                    <p>Designed and launched custom websites, web applications, and digital solutions. Managed complete project lifecycles from concept to deployment.</p>
+                    <div class="exp-company">Excelsior Springs School District</div>
+                    <p>Providing technology support, system infrastructure maintenance, and IT services for district staff and students.</p>
                 </div>
 
-                <!-- Experience Item 2 -->
                 <div class="experience-item">
                     <div class="exp-header">
-                        <span class="exp-role">Tech Specialist</span>
-                        <span class="exp-date">Previous Role</span>
+                        <span class="exp-role">Owner & Founder</span>
                     </div>
                     <div class="exp-company">Tech Center Support Service</div>
-                    <p>Handled technical troubleshooting, client relations, and infrastructure upkeep in Excelsior Springs, MO.</p>
+                    <p>Directing technical operations, computer maintenance, and digital solutions for local clients and businesses.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Advisory Board Member</span>
+                    </div>
+                    <div class="exp-company">Lex La-Ray Computer Maintenance & Networking Program</div>
+                    <p>Serving on the advisory board to guide curriculum relevance, technical standards, and career development strategies.</p>
                 </div>
             </div>
 
-            <!-- Skills Block -->
+            <!-- Education Block -->
             <div class="resume-block">
-                <h3 style="margin-bottom: 1rem; color: var(--primary);">Technical Skills & Tools</h3>
-                <div class="skills-tag-list">
-                    <span class="skill-tag">Web Design</span>
-                    <span class="skill-tag">HTML5 / CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">GitHub / Hosting</span>
-                    <span class="skill-tag">WordPress / CMS</span>
-                    <span class="skill-tag">IT Operations</span>
+                <h3>Education</h3>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Lex La-Ray Technical Center (Lexington, MO)</span>
+                        <span class="exp-date">Completed 2025</span>
+                    </div>
+                    <div class="exp-company">Computer Maintenance and Networking Program</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Richmond High School (Richmond, MO)</span>
+                        <span class="exp-date">Class of 2025</span>
+                    </div>
                 </div>
             </div>
 
+            <!-- Certifications, Degrees, and Awards -->
+            <div class="resume-block">
+                <h3>Certifications, Degrees & Honors</h3>
+                <ul class="awards-list">
+                    <li>TestOut PC Pro Certification (February 2024)</li>
+                    <li>TestOut Competency in Networking (April 2025)</li>
+                    <li>Social Media Management Certification — Meta / Coursera (February 2026)</li>
+                    <li>ACT WorkKeys Gold Certificate (May 2025)</li>
+                    <li>Missouri State CTE Certificate (May 2025)</li>
+                    <li>Missouri State FFA Ag Communications CDE — 1st Place Overall Team, 1st Place Individual Web Design</li>
+                    <li>National FFA Ag Communications CDE — 14th Place Overall, 11th Place Social Media Plan</li>
+                    <li>Missouri State FFA Degree (April 2025)</li>
+                    <li>Area FFA Degree (April 2024)</li>
+                    <li>Chapter FFA Degree (April 2023)</li>
+                    <li>Greenhand FFA Degree (April 2022)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Websites Section -->
+        <section id="websites">
+            <h2 class="section-heading">Websites & Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div>
+                        <h4>Sam Curtis Personal Site</h4>
+                        <p>Personal domain and digital hub showcasing projects and services.</p>
+                    </div>
+                    <a href="https://www.samcurtis.me" target="_blank" class="btn-link">Visit Website &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h4>Tech Center Support Service</h4>
+                        <p>Official site and service portal for tech support solutions.</p>
+                    </div>
+                    <a href="#" target="_blank" class="btn-link">Visit Website &rarr;</a>
+                </div>
+
+                <!-- Add more project cards here as needed -->
+
+            </div>
         </section>
 
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Sam Curtis. Excelsior Springs, MO.</p>
+        <p>&copy; 2026 Sam Curtis — Excelsior Springs, Missouri. All rights reserved.</p>
     </footer>
 
 </body>
