@@ -235,7 +235,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1.5rem;
+            overflow: hidden; /* Clips image edges to match border-radius */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -245,6 +245,21 @@
         .project-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
         }
 
         .project-card h4 {
@@ -399,38 +414,50 @@
                 
                 <!-- Old New Garden Primitive Baptist Church -->
                 <div class="project-card">
-                    <div>
-                        <h4>Old New Garden Primitive Baptist Church</h4>
-                        <p>Official web platform for church announcements, service schedules, and community information.</p>
+                    <img src="https://placehold.co/600x350/1e3a8a/ffffff?text=Old+New+Garden+PB" alt="Old New Garden PB Church Site" class="project-img">
+                    <div class="project-body">
+                        <div>
+                            <h4>Old New Garden Primitive Baptist Church</h4>
+                            <p>Official web platform for church announcements, service schedules, and community information.</p>
+                        </div>
+                        <a href="http://www.oldnewgardenpb.org" target="_blank" class="btn-link">Visit Website &rarr;</a>
                     </div>
-                    <a href="http://www.oldnewgardenpb.org" target="_blank" class="btn-link">Visit Website &rarr;</a>
                 </div>
 
                 <!-- Tech Center Support Service -->
                 <div class="project-card">
-                    <div>
-                        <h4>Tech Center Support Service</h4>
-                        <p>Business platform providing computer maintenance, IT services, and digital solutions.</p>
+                    <img src="https://placehold.co/600x350/1e3a8a/ffffff?text=Tech+Center+Support" alt="Tech Center Support Service Site" class="project-img">
+                    <div class="project-body">
+                        <div>
+                            <h4>Tech Center Support Service</h4>
+                            <p>Business platform providing computer maintenance, IT services, and digital solutions.</p>
+                        </div>
+                        <a href="http://techcentersupport.us" target="_blank" class="btn-link">Visit Website &rarr;</a>
                     </div>
-                    <a href="http://techcentersupport.us" target="_blank" class="btn-link">Visit Website &rarr;</a>
                 </div>
 
-                <!-- Steel Plow -->
+                <!-- SteelPlow Domains -->
                 <div class="project-card">
-                    <div>
-                        <h4>Steel Plow</h4>
-                        <p>Custom design and web management for SteelPlow.net.</p>
+                    <img src="https://placehold.co/600x350/1e3a8a/ffffff?text=SteelPlow+Domains" alt="SteelPlow Domains Site" class="project-img">
+                    <div class="project-body">
+                        <div>
+                            <h4>SteelPlow Domains</h4>
+                            <p>Custom domain services, design, and web management for SteelPlow.net.</p>
+                        </div>
+                        <a href="http://steelplow.net" target="_blank" class="btn-link">Visit Website &rarr;</a>
                     </div>
-                    <a href="http://steelplow.net" target="_blank" class="btn-link">Visit Website &rarr;</a>
                 </div>
 
                 <!-- Excelsior Springs SD Tech Department -->
                 <div class="project-card">
-                    <div>
-                        <h4>ESSD Tech Department</h4>
-                        <p>Resource and portal site supporting Excelsior Springs School District Technology operations.</p>
+                    <img src="https://placehold.co/600x350/1e3a8a/ffffff?text=ESSD+Tech" alt="ESSD Tech Department Site" class="project-img">
+                    <div class="project-body">
+                        <div>
+                            <h4>ESSD Tech Department</h4>
+                            <p>Resource and portal site supporting Excelsior Springs School District Technology operations.</p>
+                        </div>
+                        <a href="http://essdtech.org" target="_blank" class="btn-link">Visit Website &rarr;</a>
                     </div>
-                    <a href="http://essdtech.org" target="_blank" class="btn-link">Visit Website &rarr;</a>
                 </div>
 
             </div>
