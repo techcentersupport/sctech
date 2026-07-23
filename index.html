@@ -3,270 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Curtis | Tech Support & Services | Excelsior Springs, MO</title>
+    <title>Sam Curtis | Portfolio & Work</title>
     <style>
         /* CSS Reset & Variables */
         :root {
-            --primary: #1e3a8a; /* Deep Navy Blue */
-            --secondary: #0284c7; /* Sky Blue */
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --white: #ffffff;
+            --primary: #0f172a;   /* Dark Slate */
+            --accent: #2563eb;    /* Royal Blue */
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* Navigation */
-        nav {
-            background-color: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 4rem 2rem;
+        /* Header / Hero */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 1.5rem;
             text-align: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        /* Profile Image Styling */
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--white);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1.5rem;
+            border: 3px solid var(--border);
+            margin-bottom: 1rem;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        header p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-link {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-heading {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Website Portfolio Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            margin-bottom: 1.5rem;
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
-        .btn {
+        .project-card .btn-link {
             display: inline-block;
-            background-color: var(--white);
-            color: var(--primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+            color: var(--accent);
+            font-weight: 600;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            background-color: var(--light);
-        }
-
-        /* Layout Container */
-        .container {
-            max-width: 1100px;
-            margin: 3.5rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary);
+        /* Resume Styling */
+        .resume-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
             margin-bottom: 2rem;
         }
 
-        /* Service Cards Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border);
         }
 
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary);
+        .experience-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
-        .card h3 {
-            margin-bottom: 0.75rem;
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-role {
+            font-weight: bold;
+            font-size: 1.1rem;
             color: var(--primary);
         }
 
-        /* Contact Section */
-        .contact-box {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
+        .exp-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        .contact-info {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
+        .exp-company {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-info p {
-            margin-bottom: 0.75rem;
+        .skills-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
         }
 
-        .contact-info a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
+        .skill-tag {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: var(--gray);
             text-align: center;
             padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
             margin-top: 4rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Sam Curtis</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Banner -->
-    <header class="hero">
+    <!-- Hero Header -->
+    <header>
         <div class="hero-content">
-            <!-- Portrait Image -->
             <img src="sc.jpg" alt="Sam Curtis" class="profile-img">
             <h1>Sam Curtis</h1>
-            <p>Reliable Tech & Computer Support Services in Excelsior Springs, MO</p>
-            <a href="#contact" class="btn">Get In Touch</a>
+            <p class="subtitle">Excelsior Springs, Missouri</p>
+            <div class="contact-links">
+                <a href="mailto:hello@samcurtis.me">hello@samcurtis.me</a>
+                <a href="tel:8163198559">(816) 319-8559</a>
+                <a href="https://www.samcurtis.me" target="_blank">samcurtis.me</a>
+            </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container">
-        <h2 class="section-title">About Me</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--gray);">
-            Providing dependable technical support, IT solutions, and computer service for individuals and businesses in Excelsior Springs and the surrounding areas.
-        </p>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="container">
-        <h2 class="section-title">Services Offered</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Hardware Repair & Upgrades</h3>
-                <p>Diagnostics, component replacements, performance upgrades, and custom PC builds tailored to your needs.</p>
-            </div>
-            <div class="card">
-                <h3>Software & Virus Removal</h3>
-                <p>System cleanup, virus/malware removal, OS reinstallation, and software setup to keep your device running smoothly.</p>
-            </div>
-            <div class="card">
-                <h3>Network & Wireless Setup</h3>
-                <p>Home and business Wi-Fi setup, network troubleshooting, router configuration, and device connectivity.</p>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#websites" class="nav-link active">Featured Websites</a>
+            <a href="#resume" class="nav-link">Resume & Experience</a>
         </div>
-    </section>
+    </nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-box">
-            <p>Have a technical issue or need assistance? Feel free to reach out directly.</p>
-            <div class="contact-info">
-                <p><strong>Location:</strong> Excelsior Springs, MO 64024</p>
-                <p><strong>Email:</strong> <a href="mailto:hello@samcurtis.me">hello@samcurtis.me</a></p>
-                <p><strong>Phone:</strong> <a href="tel:8163198559">(816) 319-8559</a></p>
+    <!-- Content Area -->
+    <main class="container">
+
+        <!-- Websites Section -->
+        <section id="websites">
+            <h2 class="section-heading">Websites & Projects Created</h2>
+            <div class="projects-grid">
+                
+                <!-- Website Card 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Sam Curtis Personal Site</h3>
+                        <p>Personal portfolio site highlighting projects, professional history, and services.</p>
+                    </div>
+                    <a href="https://www.samcurtis.me" target="_blank" class="btn-link">Visit Website &rarr;</a>
+                </div>
+
+                <!-- Website Card 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Project Name / Client Site</h3>
+                        <p>A short description of this website—what it was built for, tools used, or who it serves.</p>
+                    </div>
+                    <a href="#" target="_blank" class="btn-link">Visit Website &rarr;</a>
+                </div>
+
+                <!-- Website Card 3 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Another Website Project</h3>
+                        <p>Detailed description of the site layout, client scope, or personal project build details.</p>
+                    </div>
+                    <a href="#" target="_blank" class="btn-link">Visit Website &rarr;</a>
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2 class="section-heading">Resume & Experience</h2>
+            
+            <div class="resume-block">
+                <h3 style="margin-bottom: 1.25rem; color: var(--primary);">Work History</h3>
+
+                <!-- Experience Item 1 -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Owner / Principal Developer</span>
+                        <span class="exp-date">2020 – Present</span>
+                    </div>
+                    <div class="exp-company">Sam Curtis Digital</div>
+                    <p>Designed and launched custom websites, web applications, and digital solutions. Managed complete project lifecycles from concept to deployment.</p>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Tech Specialist</span>
+                        <span class="exp-date">Previous Role</span>
+                    </div>
+                    <div class="exp-company">Tech Center Support Service</div>
+                    <p>Handled technical troubleshooting, client relations, and infrastructure upkeep in Excelsior Springs, MO.</p>
+                </div>
+            </div>
+
+            <!-- Skills Block -->
+            <div class="resume-block">
+                <h3 style="margin-bottom: 1rem; color: var(--primary);">Technical Skills & Tools</h3>
+                <div class="skills-tag-list">
+                    <span class="skill-tag">Web Design</span>
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">GitHub / Hosting</span>
+                    <span class="skill-tag">WordPress / CMS</span>
+                    <span class="skill-tag">IT Operations</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Sam Curtis — Excelsior Springs, MO. All rights reserved.</p>
+        <p>&copy; 2026 Sam Curtis. Excelsior Springs, MO.</p>
     </footer>
 
 </body>
